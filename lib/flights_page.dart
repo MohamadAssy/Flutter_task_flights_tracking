@@ -54,11 +54,47 @@ class _FlightsPageState extends State<FlightsPage> {
       lastUpdateTime = DateTime.now();
     } catch (e) {
       print('Error fetching flights: $e');
+      _showErrorDialog(); // Show the error dialog if fetching fails
     }
 
     setState(() {
       isLoading = false;
     });
+  }
+
+  void _showErrorDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(
+          'Error',
+          style: TextStyle(color: Colors.blueGrey.shade800),
+        ),
+        content: Text(
+          'Unable to fetch flight data. Please check your connection.',
+          style: TextStyle(color: Colors.blueGrey.shade600),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              _loadFlights(); // Retry loading flights
+            },
+            child: Text('Retry', style: TextStyle(color: Colors.green.shade600)),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop(); // Cancel
+            },
+            child: Text('Cancel', style: TextStyle(color: Colors.grey.shade600)),
+          ),
+        ],
+        backgroundColor: Colors.white, // Box color
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15), // Optional: Rounded corners
+        ),
+      ),
+    );
   }
 
   Color _getStatusColor(String status) {

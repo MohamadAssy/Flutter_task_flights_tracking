@@ -57,8 +57,7 @@ Future<List<dynamic>> fetchFlights(String? departure, String? arrival) async {
 
 3. Error Handling
 
-API Failures: Displays an error message on the UI with a retry option if API fetch fails.
-No Data: Shows a "No Data Available" message if no flights match the filters.
+API Failures: The app includes an error handling mechanism to show a dialog when flight data cannot be fetched. If an error occurs while making API requests, an alert dialog will appear with the message "Unable to fetch flight data. Please check your connection." The dialog includes options to "Retry" (which attempts to fetch the data again) or "Cancel" (which dismisses the dialog).
 
 4. Refresh Mechanisms
 
