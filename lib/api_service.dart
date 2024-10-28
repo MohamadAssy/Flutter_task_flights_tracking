@@ -2,12 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  final String apiKey = '6198a3e018a7a3762d33912e5692d620'; // Replace with your actual API key
+  final String apiKey = '6198a3e018a7a3762d33912e5692d620'; 
 
   Future<List<dynamic>> fetchFlights(String? departure, String? arrival) async {
     String url = 'http://api.aviationstack.com/v1/flights?access_key=$apiKey';
 
-    // Add filtering for specific airports if provided
+    // Add filtering for specific airports
     if (departure != null) {
       url += '&dep_iata=$departure';
     }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'welcome_page.dart'; // We'll create this file next
+import 'welcome_page.dart';
 
 void main() {
   runApp(FlightApp());
