@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  final String apiKey = 'ad577247338bd0db9d2d3e56900bf995'; // Replace with your actual API key
+  final String apiKey = '6198a3e018a7a3762d33912e5692d620'; // Replace with your actual API key
 
   Future<List<dynamic>> fetchFlights(String? departure, String? arrival) async {
     String url = 'http://api.aviationstack.com/v1/flights?access_key=$apiKey';
